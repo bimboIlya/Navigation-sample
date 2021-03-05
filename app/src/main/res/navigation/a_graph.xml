@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/a_graph"
+    app:startDestination="@id/a1Fragment">
+    <fragment
+        android:id="@+id/a1Fragment"
+        android:name="com.example.navigationsample.fragments.a.A1Fragment"
+        android:label="fragment_a1"
+        tools:layout="@layout/fragment">
+        <action
+            android:id="@+id/action_a1Fragment_to_a2Fragment"
+            app:destination="@id/a2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/a2Fragment"
+        android:name="com.example.navigationsample.fragments.a.A2Fragment"
+        android:label="A2Fragment">
+        <action
+            android:id="@+id/action_a2Fragment_to_a3Fragment"
+            app:destination="@id/a3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/a3Fragment"
+        android:name="com.example.navigationsample.fragments.a.A3Fragment"
+        android:label="A3Fragment">
+        <action
+            android:id="@+id/action_a3Fragment_to_a4Fragment"
+            app:destination="@id/a4Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/a4Fragment"
+        android:name="com.example.navigationsample.fragments.a.A4Fragment"
+        android:label="A4Fragment" />
+</navigation>
