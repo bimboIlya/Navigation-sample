@@ -1,0 +1,10 @@
+ext {
+    application = [
+            'applicationId'     : "com.example.navigationsample",
+            'minSdkVersion'     : 21,
+            'targetedSdkVersion': 30,
+            'buildToolsVersion' : "30.0.2",
+            'versionCode'       : 1,
+            'versionName'       : "1.0",
+    ]
+}

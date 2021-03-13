@@ -1,2 +1,17 @@
-include ':app'
 rootProject.name = "Navigation sample"
+
+def modules = [
+        ':app'  : "app",
+
+        ':feature-a'    : "feature/a",
+        ':feature-b'    : "feature/b",
+        ':feature-c'    : "feature/c",
+        ':feature-about': "feature/about",
+
+        ':shared-ui' : "shared/ui",
+]
+
+modules.forEach { name, path ->
+    include(name)
+    project(name).projectDir = file(path)
+}

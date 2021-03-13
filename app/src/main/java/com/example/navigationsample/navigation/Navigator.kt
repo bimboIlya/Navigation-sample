@@ -5,8 +5,6 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.onEach
 
-// todo просто передает команды в активити, подумать над именем
-
 typealias NavCommand = MainActivity.() -> Unit
 
 class Navigator {
@@ -15,7 +13,7 @@ class Navigator {
         .asSharedFlow()
         .onEach { _navFlow.resetReplayCache() }
 
-    fun execute(navCommand: NavCommand) {
+    fun sendCommand(navCommand: NavCommand) {
         _navFlow.tryEmit(navCommand)
     }
 }

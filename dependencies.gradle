@@ -1,0 +1,53 @@
+ext {
+    versions = [
+            'gradleAndroid'    : "4.1.2",
+
+            'kotlin'           : "1.4.30",
+            'coroutines'       : "1.4.2",
+
+            'androixAppcompat' : "1.2.0",
+            'androixConstraint': "2.0.4",
+            'androixCore'      : "1.3.0",
+            'androixFragment'  : "1.3.0",
+
+            'koin'             : "2.2.1",
+            'lifecycle'        : "2.3.0",
+            'material'         : "1.3.0",
+            'navigation'       : "2.3.3",
+            'recyclerView'     : "1.1.0",
+            'timber'           : "4.7.1",
+    ]
+
+    classpaths = [
+            'gradleAndroidPlugin': "com.android.tools.build:gradle:$versions.gradleAndroid",
+            'gradleKotlinPlugin' : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+    ]
+
+    androidXLibraries = [
+            'appcompat'         : "androidx.appcompat:appcompat:$versions.androixAppcompat",
+            'constraint'        : "androidx.constraintlayout:constraintlayout:$versions.androixConstraint",
+            'core'              : "androidx.core:core-ktx:$versions.androixCore",
+            'fragment'          : "androidx.fragment:fragment-ktx:$versions.androixFragment",
+
+            'livedata'          : "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle",
+            'viewmodel'         : "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle",
+
+            'navigationFragment': "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+            'navigationUi'      : "androidx.navigation:navigation-ui-ktx:$versions.navigation",
+
+            'recyclerView'      : "androidx.recyclerview:recyclerview:$versions.recyclerView",
+    ]
+
+    libraries = [
+            'kotlinStdLib'     : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
+
+            'coroutinesAndroid': "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines",
+
+            'koinAndroid'      : "org.koin:koin-androidx-viewmodel:$versions.koin",
+            'koinViewmodel'    : "org.koin:koin-androidx-viewmodel:$versions.koin",
+
+            'material'         : "com.google.android.material:material:$versions.material",
+
+            'timber'           : "com.jakewharton.timber:timber:$versions.timber",
+    ]
+}

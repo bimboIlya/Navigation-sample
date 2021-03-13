@@ -1,30 +1,18 @@
 package com.example.navigationsample.navigation
 
-import android.os.Bundle
-import androidx.annotation.IdRes
-import androidx.navigation.NavDirections
-import androidx.navigation.NavOptions
 import androidx.navigation.navOptions
 import com.example.navigationsample.MainActivity
 import com.example.navigationsample.R
 import timber.log.Timber
+import kotlin.reflect.KClass
 
 interface MainRouter {
 
-    // сомнительно
-    fun navigate(navDirections: NavDirections, navOptions: NavOptions = DefaultNavOptions)
-
     fun navigate(destination: Destination)
-
-    fun navigate(
-        @IdRes destinationId: Int,
-        args: Bundle? = null,
-        navOptions: NavOptions = DefaultNavOptions
-    )
 
     fun pop()
 
-    fun popUpTo(@IdRes destinationId: Int, inclusive: Boolean = false)
+    fun popUpTo(destinationClass: KClass<out FragmentDestination>, inclusive: Boolean = false)
 
     fun popToRoot(inclusive: Boolean = false)
 }
@@ -34,14 +22,8 @@ class MainRouterImpl(
     private val navigator: Navigator
 ) : MainRouter {
 
-    override fun navigate(navDirections: NavDirections, navOptions: NavOptions) {
-        navigator.execute {
-            currentNavController.navigate(navDirections, navOptions)
-        }
-    }
-
     override fun navigate(destination: Destination) {
-        navigator.execute {
+        navigator.sendCommand {
             when (destination) {
                 is FragmentDestination -> navigateFragment(destination)
                 is SystemDestination -> navigateSystem(destination)
@@ -49,45 +31,52 @@ class MainRouterImpl(
         }
     }
 
-    override fun navigate(
-        @IdRes destinationId: Int,
-        args: Bundle?,
-        navOptions: NavOptions
-    ) {
-        navigator.execute {
-            currentNavController.navigate(
-                destinationId,
-                args,
-                navOptions
-            )
-        }
-    }
-
     override fun pop() {
-        navigator.execute {
+        navigator.sendCommand {
             currentNavController.popBackStack()
         }
     }
 
-    override fun popUpTo(@IdRes destinationId: Int, inclusive: Boolean) {
-        navigator.execute {
-            currentNavController.popBackStack(destinationId, inclusive)
+    override fun popUpTo(destinationClass: KClass<out FragmentDestination>, inclusive: Boolean) {
+        navigator.sendCommand {
+            val destination =
+                currentNavController.graph.find { it.label == destinationClass.simpleName }
+            if (destination?.id == null) {
+                popToRoot(inclusive)
+                return@sendCommand
+            }
+
+            currentNavController.popBackStack(destination.id, inclusive)
         }
     }
 
     override fun popToRoot(inclusive: Boolean) {
-        navigator.execute {
+        navigator.sendCommand {
             val startId = currentNavController.graph.startDestination
             currentNavController.popBackStack(startId, inclusive)
         }
     }
 
     private fun MainActivity.navigateFragment(destination: FragmentDestination) {
-        currentNavController.navigate(
-            destination.destinationId,
-            destination.args,
-            destination.navOptions
-        )
+        when (destination) {
+            is FragmentDestinationById -> currentNavController.navigate(
+                destination.destinationId,
+                destination.args,
+                destination.navOptions
+            )
+
+            is FragmentDestinationByDeeplink -> currentNavController.navigate(
+                destination.deeplinkUri,
+                destination.navOptions
+            )
+        }
+
+        addDestinationLabel(destination)
+    }
+
+    private fun MainActivity.addDestinationLabel(destination: FragmentDestination) {
+        currentNavController.currentDestination?.label =
+            destination::class.simpleName?.removeSuffix("Deeplink")
     }
 
     private fun MainActivity.navigateSystem(destination: SystemDestination) {

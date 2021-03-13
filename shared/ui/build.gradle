@@ -1,0 +1,7 @@
+dependencies {
+    implementation(androidXLibraries.core)
+    implementation(androidXLibraries.appcompat)
+    implementation(androidXLibraries.fragment)
+
+    implementation(libraries.material)
+}

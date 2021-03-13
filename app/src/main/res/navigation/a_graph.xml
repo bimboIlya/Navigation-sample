@@ -6,7 +6,7 @@
     app:startDestination="@id/a1Fragment">
     <fragment
         android:id="@+id/a1Fragment"
-        android:name="com.example.navigationsample.fragments.a.A1Fragment"
+        android:name="com.example.navigationsample.a.a1.A1Fragment"
         android:label="fragment_a1"
         tools:layout="@layout/fragment">
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/a2Fragment"
-        android:name="com.example.navigationsample.fragments.a.A2Fragment"
+        android:name="com.example.navigationsample.a.a2.A2Fragment"
         android:label="A2Fragment">
         <action
             android:id="@+id/action_a2Fragment_to_a3Fragment"
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/a3Fragment"
-        android:name="com.example.navigationsample.fragments.a.A3Fragment"
+        android:name="com.example.navigationsample.a.a3.A3Fragment"
         android:label="A3Fragment">
         <action
             android:id="@+id/action_a3Fragment_to_a4Fragment"
@@ -31,6 +31,9 @@
     </fragment>
     <fragment
         android:id="@+id/a4Fragment"
-        android:name="com.example.navigationsample.fragments.a.A4Fragment"
+        android:name="com.example.navigationsample.a.a4.A4Fragment"
         android:label="A4Fragment" />
+
+    <include app:graph="@navigation/about_graph" />
+
 </navigation>

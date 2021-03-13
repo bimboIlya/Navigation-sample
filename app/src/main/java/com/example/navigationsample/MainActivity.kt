@@ -7,14 +7,8 @@ import androidx.navigation.NavController
 import com.example.navigationsample.navigation.Navigator
 import com.example.navigationsample.navigation.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
-
-// TODO разбить на модули, подрубить диплинки
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setUpNavigator()
+        setupNavigator()
 
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
@@ -39,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         setupBottomNavigationBar()
     }
 
-    private fun setUpNavigator() {
+    private fun setupNavigator() {
         lifecycleScope.launchWhenResumed {
             navigator.navFlow.collect { navCommand ->
                 navCommand.invoke(this@MainActivity)

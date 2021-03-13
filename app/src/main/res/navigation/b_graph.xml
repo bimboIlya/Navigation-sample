@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/b1Fragment"
-        android:name="com.example.navigationsample.fragments.b.B1Fragment"
+        android:name="com.example.navigationsample.b.b1.B1Fragment"
         android:label="B1Fragment">
         <action
             android:id="@+id/action_b1Fragment_to_b2Fragment"
@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/b2Fragment"
-        android:name="com.example.navigationsample.fragments.b.B2Fragment"
+        android:name="com.example.navigationsample.b.b2.B2Fragment"
         android:label="B2Fragment">
         <argument android:name="b2ListSize"
             app:argType="integer" />
@@ -23,6 +23,13 @@
 
     <fragment
         android:id="@+id/b3Fragment"
-        android:name="com.example.navigationsample.fragments.b.B3Fragment"
-        android:label="B3Fragment" />
+        android:name="com.example.navigationsample.b.b3.B3Fragment"
+        android:label="B3Fragment" >
+
+        <deepLink app:uri="app.poop://b3" />
+
+    </fragment>
+
+    <include app:graph="@navigation/about_graph" />
+
 </navigation>

@@ -1,0 +1,14 @@
+dependencies {
+
+    implementation(libraries.koinAndroid)
+    implementation(libraries.koinViewmodel)
+
+    implementation(androidXLibraries.fragment)
+
+    implementation(androidXLibraries.livedata)
+    implementation(androidXLibraries.viewmodel)
+
+    implementation(androidXLibraries.recyclerView)
+
+    implementation(project(":shared-ui"))
+}

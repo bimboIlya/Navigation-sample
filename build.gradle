@@ -1,29 +1,65 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext {
-        kotlin_version = "1.4.30"
-        koin_version = "2.2.1"
-        lifecycle_version = "2.3.0"
-        nav_version = "2.3.3"
-    }
+    apply from: "$rootDir/dependencies.gradle"
+
     repositories {
         google()
         jcenter()
     }
-    dependencies {
-        classpath "com.android.tools.build:gradle:4.1.2"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+    dependencies {
+        classpath classpaths.gradleAndroidPlugin
+        classpath classpaths.gradleKotlinPlugin
     }
 }
+
+apply from: "$rootDir/application.gradle"
 
 allprojects {
     repositories {
         google()
         jcenter()
+    }
+}
+
+subprojects {
+    if (project.name == "app") {
+        apply plugin: "com.android.application"
+    } else {
+        apply plugin: "com.android.library"
+    }
+
+    apply plugin: "kotlin-android"
+
+    android {
+        compileSdkVersion application.targetedSdkVersion
+        buildToolsVersion application.buildToolsVersion
+
+        defaultConfig {
+            minSdkVersion application.minSdkVersion
+            targetSdkVersion application.targetedSdkVersion
+            versionCode application.versionCode
+            versionName application.versionName
+
+            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        }
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        kotlinOptions {
+            jvmTarget = '1.8'
+        }
+
+        buildFeatures {
+            viewBinding true
+        }
+    }
+
+    dependencies {
+        implementation(libraries.coroutinesAndroid)
+        implementation(libraries.timber)
     }
 }
 

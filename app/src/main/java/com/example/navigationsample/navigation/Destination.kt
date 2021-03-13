@@ -1,9 +1,10 @@
 package com.example.navigationsample.navigation
 
 import android.content.Intent
+import android.net.Uri
 import android.provider.MediaStore
 import com.example.navigationsample.MainActivity
-import com.example.navigationsample.util.Args
+import com.example.navigationsample.ui.util.Args
 
 interface Destination
 
@@ -23,8 +24,15 @@ object ImgChooserDestination : SystemDestination {
 }
 
 
-abstract class FragmentDestination : Destination {
+sealed class FragmentDestination : Destination {
+    open val navOptions = DefaultNavOptions
+}
+
+abstract class FragmentDestinationById : FragmentDestination() {
     abstract val destinationId: Int
     open val args: Args? = null
-    open val navOptions = DefaultNavOptions
+}
+
+abstract class FragmentDestinationByDeeplink : FragmentDestination() {
+    abstract val deeplinkUri: Uri
 }
