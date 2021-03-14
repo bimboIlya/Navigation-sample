@@ -24,30 +24,29 @@ ext {
     ]
 
     androidXLibraries = [
-            'appcompat'         : "androidx.appcompat:appcompat:$versions.androixAppcompat",
-            'constraint'        : "androidx.constraintlayout:constraintlayout:$versions.androixConstraint",
-            'core'              : "androidx.core:core-ktx:$versions.androixCore",
-            'fragment'          : "androidx.fragment:fragment-ktx:$versions.androixFragment",
+            'appcompat'   : "androidx.appcompat:appcompat:$versions.androixAppcompat",
+            'constraint'  : "androidx.constraintlayout:constraintlayout:$versions.androixConstraint",
+            'core'        : "androidx.core:core-ktx:$versions.androixCore",
+            'fragment'    : "androidx.fragment:fragment-ktx:$versions.androixFragment",
 
-            'livedata'          : "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle",
-            'viewmodel'         : "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle",
+            'lifecycle'   : ['livedata' : "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle",
+                             'viewmodel': "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"],
 
-            'navigationFragment': "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
-            'navigationUi'      : "androidx.navigation:navigation-ui-ktx:$versions.navigation",
+            'navigation'  : ['fragment': "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+                             'ui'      : "androidx.navigation:navigation-ui-ktx:$versions.navigation"],
 
-            'recyclerView'      : "androidx.recyclerview:recyclerview:$versions.recyclerView",
+            'recyclerView': "androidx.recyclerview:recyclerview:$versions.recyclerView",
     ]
 
     libraries = [
-            'kotlinStdLib'     : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
+            'kotlin'  : ['stdLib'           : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
+                         'coroutinesAndroid': "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"],
 
-            'coroutinesAndroid': "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines",
+            'koin'    : ['android'  : "org.koin:koin-android:$versions.koin",
+                         'viewmodel': "org.koin:koin-androidx-viewmodel:$versions.koin"],
 
-            'koinAndroid'      : "org.koin:koin-androidx-viewmodel:$versions.koin",
-            'koinViewmodel'    : "org.koin:koin-androidx-viewmodel:$versions.koin",
+            'material': "com.google.android.material:material:$versions.material",
 
-            'material'         : "com.google.android.material:material:$versions.material",
-
-            'timber'           : "com.jakewharton.timber:timber:$versions.timber",
+            'timber'  : "com.jakewharton.timber:timber:$versions.timber",
     ]
 }

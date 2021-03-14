@@ -58,8 +58,8 @@ subprojects {
     }
 
     dependencies {
-        implementation(libraries.coroutinesAndroid)
-        implementation(libraries.timber)
+        implementation libraries.kotlin.coroutinesAndroid
+        implementation libraries.timber
     }
 }
 

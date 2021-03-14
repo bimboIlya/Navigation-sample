@@ -1,6 +1,6 @@
 dependencies {
     
-    implementation(androidXLibraries.fragment)
+    implementation androidXLibraries.fragment
 
-    implementation(project(":shared-ui"))
+    implementation project(":shared-ui")
 }

@@ -16,18 +16,18 @@ android {
 
 dependencies {
 
-    implementation(androidXLibraries.navigationFragment)
-    implementation(androidXLibraries.navigationUi)
+    implementation androidXLibraries.navigation.fragment
+    implementation androidXLibraries.navigation.ui
 
-    implementation(libraries.koinAndroid)
-    implementation(libraries.koinViewmodel)
+    implementation libraries.koin.android
+    implementation libraries.koin.viewmodel
 
-    implementation(libraries.material)
+    implementation libraries.material
 
-    implementation(project(":feature-a"))
-    implementation(project(":feature-b"))
-    implementation(project(":feature-c"))
-    implementation(project(":feature-about"))
+    implementation project(":feature-a")
+    implementation project(":feature-b")
+    implementation project(":feature-c")
+    implementation project(":feature-about")
 
-    implementation(project(":shared-ui"))
+    implementation project(":shared-ui")
 }

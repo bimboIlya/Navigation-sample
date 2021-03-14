@@ -1,10 +1,10 @@
 dependencies {
 
-    implementation(libraries.koinAndroid)
-    implementation(libraries.koinViewmodel)
+    implementation libraries.koin.android
+    implementation libraries.koin.viewmodel
 
-    implementation(androidXLibraries.livedata)
-    implementation(androidXLibraries.viewmodel)
+    implementation androidXLibraries.lifecycle.livedata
+    implementation androidXLibraries.lifecycle.viewmodel
 
-    implementation(project(":shared-ui"))
+    implementation project(":shared-ui")
 }

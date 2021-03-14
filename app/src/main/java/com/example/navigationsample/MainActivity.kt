@@ -10,6 +10,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
 
+// todo проблема при открытии приложения через диплинк:
+//  при смене конфигурации заново отрабатывает интент, открывается новая таска с экраном из интента
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var currentNavController: NavController
