@@ -1,4 +1,4 @@
-package com.example.navigationsample.ui.util
+package com.example.navigationsample.ui.extensions
 
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment

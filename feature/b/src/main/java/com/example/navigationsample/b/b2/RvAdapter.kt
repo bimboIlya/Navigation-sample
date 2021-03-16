@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.navigationsample.feature.b.R
-import com.example.navigationsample.ui.util.inflate
+import com.example.navigationsample.ui.extensions.inflate
 
 class RvAdapter(private val size: Int) : RecyclerView.Adapter<RvAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

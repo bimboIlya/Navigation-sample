@@ -2,23 +2,29 @@ package com.example.navigationsample.a.a3
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
+import androidx.navigation.navGraphViewModels
+import com.example.navigationsample.a.SharedViewModel
 import com.example.navigationsample.feature.a.R
 import com.example.navigationsample.ui.BaseFragment
-import com.example.navigationsample.ui.util.addBackPressedCallback
+import com.example.navigationsample.ui.databinding.FragmentBinding
+import com.example.navigationsample.ui.extensions.addBackPressedCallback
+import com.example.navigationsample.ui.extensions.showSnackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class A3Fragment : BaseFragment(R.layout.fragment) {
     private val vm: A3ViewModel by viewModel()
+    private val sharedVm: SharedViewModel by navGraphViewModels(R.id.a_graph)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<TextView>(R.id.frag_text).text = "A3"
+        showSnackbar(sharedVm.text)
+        sharedVm.text = "A3"
 
-        view.findViewById<Button>(R.id.next_btn).setOnClickListener {
-            vm.openA4()
+        FragmentBinding.bind(view).apply {
+            fragText.text = "A3"
+
+            nextBtn.setOnClickListener { vm.openA4() }
         }
 
         addBackPressedCallback { vm.pop() }

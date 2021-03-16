@@ -29,5 +29,6 @@ dependencies {
     implementation project(":feature-c")
     implementation project(":feature-about")
 
+    implementation project(":shared-nav_graphs")
     implementation project(":shared-ui")
 }

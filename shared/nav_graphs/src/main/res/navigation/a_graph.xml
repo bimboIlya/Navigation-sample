@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/a_graph"
     app:startDestination="@id/a1Fragment">
     <fragment
         android:id="@+id/a1Fragment"
         android:name="com.example.navigationsample.a.a1.A1Fragment"
-        android:label="fragment_a1"
-        tools:layout="@layout/fragment">
+        android:label="fragment_a1">
         <action
             android:id="@+id/action_a1Fragment_to_a2Fragment"
             app:destination="@id/a2Fragment" />

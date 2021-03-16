@@ -1,5 +1,8 @@
 buildscript {
     apply from: "$rootDir/dependencies.gradle"
+    ext {
+        kotlin_version = '1.4.30'
+    }
 
     repositories {
         google()
@@ -9,6 +12,7 @@ buildscript {
     dependencies {
         classpath classpaths.gradleAndroidPlugin
         classpath classpaths.gradleKotlinPlugin
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 

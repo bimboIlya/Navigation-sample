@@ -1,0 +1,5 @@
+dependencies {
+
+    implementation androidXLibraries.navigation.fragment
+    implementation androidXLibraries.navigation.ui
+}

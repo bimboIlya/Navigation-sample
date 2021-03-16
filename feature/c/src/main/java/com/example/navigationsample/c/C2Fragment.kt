@@ -6,7 +6,7 @@ import androidx.core.view.isVisible
 import com.example.navigationsample.feature.c.R
 import com.example.navigationsample.ui.BaseFragment
 import com.example.navigationsample.ui.databinding.FragmentBinding
-import com.example.navigationsample.ui.util.addBackPressedCallback
+import com.example.navigationsample.ui.extensions.addBackPressedCallback
 import org.koin.android.ext.android.inject
 
 class C2Fragment : BaseFragment(R.layout.fragment) {

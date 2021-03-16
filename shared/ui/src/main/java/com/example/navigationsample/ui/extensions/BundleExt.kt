@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE")
 
-package com.example.navigationsample.ui.util
+package com.example.navigationsample.ui.extensions
 
 import android.os.Bundle
 import android.os.Parcelable

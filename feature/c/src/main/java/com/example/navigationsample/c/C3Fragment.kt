@@ -5,10 +5,10 @@ import android.view.View
 import com.example.navigationsample.feature.c.R
 import com.example.navigationsample.ui.BaseFragment
 import com.example.navigationsample.ui.databinding.FragmentBinding
-import com.example.navigationsample.ui.util.Args
-import com.example.navigationsample.ui.util.addBackPressedCallback
-import com.example.navigationsample.ui.util.args
-import com.example.navigationsample.ui.util.getStringOrThrow
+import com.example.navigationsample.ui.extensions.Args
+import com.example.navigationsample.ui.extensions.addBackPressedCallback
+import com.example.navigationsample.ui.extensions.args
+import com.example.navigationsample.ui.extensions.getStringOrThrow
 import org.koin.android.ext.android.inject
 
 const val C3_TEXT_KEY = "c3_text"

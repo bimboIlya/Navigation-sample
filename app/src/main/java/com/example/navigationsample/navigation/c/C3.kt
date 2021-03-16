@@ -8,7 +8,7 @@ import com.example.navigationsample.c.c3Text
 import com.example.navigationsample.navigation.FragmentDestinationByDeeplink
 import com.example.navigationsample.navigation.FragmentDestinationById
 import com.example.navigationsample.navigation.MainRouter
-import com.example.navigationsample.ui.util.argsOf
+import com.example.navigationsample.ui.extensions.argsOf
 
 class C3RouterImpl(
     private val mainRouter: MainRouter

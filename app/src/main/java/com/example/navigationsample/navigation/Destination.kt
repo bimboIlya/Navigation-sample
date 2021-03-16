@@ -4,7 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.provider.MediaStore
 import com.example.navigationsample.MainActivity
-import com.example.navigationsample.ui.util.Args
+import com.example.navigationsample.ui.extensions.Args
 
 interface Destination
 

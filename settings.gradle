@@ -1,14 +1,15 @@
 rootProject.name = "Navigation sample"
 
 def modules = [
-        ':app'  : "app",
+        ':app'             : "app",
 
-        ':feature-a'    : "feature/a",
-        ':feature-b'    : "feature/b",
-        ':feature-c'    : "feature/c",
-        ':feature-about': "feature/about",
+        ':feature-a'       : "feature/a",
+        ':feature-b'       : "feature/b",
+        ':feature-c'       : "feature/c",
+        ':feature-about'   : "feature/about",
 
-        ':shared-ui' : "shared/ui",
+        ':shared-ui'       : "shared/ui",
+        ':shared-nav_graphs': "shared/nav_graphs",
 ]
 
 modules.forEach { name, path ->

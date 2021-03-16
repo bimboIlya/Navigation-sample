@@ -6,5 +6,9 @@ dependencies {
     implementation androidXLibraries.lifecycle.livedata
     implementation androidXLibraries.lifecycle.viewmodel
 
+    implementation androidXLibraries.navigation.fragment
+    implementation androidXLibraries.navigation.ui
+
+    implementation project(":shared-nav_graphs")
     implementation project(":shared-ui")
 }

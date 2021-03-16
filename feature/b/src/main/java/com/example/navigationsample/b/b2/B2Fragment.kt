@@ -5,11 +5,11 @@ import android.view.View
 import com.example.navigationsample.feature.b.R
 import com.example.navigationsample.feature.b.databinding.FragmentB2Binding
 import com.example.navigationsample.ui.BaseFragment
-import com.example.navigationsample.ui.util.Args
-import com.example.navigationsample.ui.util.args
-import com.example.navigationsample.ui.util.getIntOrThrow
+import com.example.navigationsample.ui.extensions.Args
+import com.example.navigationsample.ui.extensions.args
+import com.example.navigationsample.ui.extensions.getIntOrThrow
 
-private const val B2SIZE_KEY = "b2size_key"
+private const val B2SIZE_KEY = "b2ListSize"
 
 var Args.b2Size: Int
     get() = getIntOrThrow(B2SIZE_KEY)

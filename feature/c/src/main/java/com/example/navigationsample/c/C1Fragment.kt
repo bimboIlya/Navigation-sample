@@ -6,8 +6,8 @@ import androidx.core.view.isVisible
 import com.example.navigationsample.feature.c.R
 import com.example.navigationsample.ui.BaseFragment
 import com.example.navigationsample.ui.databinding.FragmentBinding
+import com.example.navigationsample.ui.extensions.addBackPressedCallback
 import com.example.navigationsample.ui.pushDeeplinkNotification
-import com.example.navigationsample.ui.util.addBackPressedCallback
 import org.koin.android.ext.android.inject
 
 class C1Fragment : BaseFragment(R.layout.fragment) {
