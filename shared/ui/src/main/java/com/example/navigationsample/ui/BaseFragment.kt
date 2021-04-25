@@ -17,7 +17,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav).isVisible = bottomBarIsVisible
+        requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)?.isVisible = bottomBarIsVisible
         super.onViewCreated(view, savedInstanceState)
         logLifecycle("onViewCreated()")
     }
